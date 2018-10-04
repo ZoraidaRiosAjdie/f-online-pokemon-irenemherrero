@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-
-class Filters extends Component {
+class CharacterCard extends Component {
     state = {  }
     render() { 
         return ( 
-            <p></p>
+            <p>Buenas</p>
          );
     }
 }
  
-export default Filters;
+export default CharacterCard;
