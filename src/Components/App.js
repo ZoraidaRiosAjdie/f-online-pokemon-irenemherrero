@@ -3,6 +3,8 @@ import '../Styles/App.css';
 import Filters from './Filters';
 import CharactersList from './CharactersList';
 
+let arrayPokemons = [];
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -19,39 +21,27 @@ componentDidMount(){
   }
 
   fetchData(url){
-    const numberOfPokemon = 25;
-    const arrayPokemons = [];
     fetch(url)
     .then(function(response){
       return response.json();
     })
     .then(function(json){
       console.log(json);
-      arrayPokemons.push(json.name);
+      arrayPokemons = [
+        ...arrayPokemons,
+        {
+          id: json.id,
+          name: json.name,
+          photo: json.sprites.front_default,
+          types: "",
+        }
+      ];
       console.log(arrayPokemons);
       // for(let j = 0; j < numberOfPokemon; j++)
 
       // })
   })
 }
-  
-  
-    // var pokemonResults = json.results;
-    // var pokemonArray = [];
-    // console.log(pokemonResults);
-    // for(var i = 0; i < pokemonResults.length; i++){
-    //   pokemonArray[i] = pokemonResults[i].name;
-    //   // fetch (`http://pokeapi.salestock.net/api/v2/pokemon/${i+1}`);
-    // }
-    // this.createPromise();
-    // })
-  // .then(function(results){
-  //   return results.json();
-  // })
-  // .then(function(resJson){
-  //   console.log(resJson);
-  // })
-
 
   render() {
     return (
