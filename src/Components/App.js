@@ -4,7 +4,7 @@ import Main from './Main';
 import LoadingPage from './LoadingPage';
 
 let arrayPokemons = [];
-const numberPokemonToSearch = 5;
+const numberPokemonToSearch = 25;
 
 class App extends Component {
   constructor(props) {
@@ -21,8 +21,8 @@ class App extends Component {
 
   componentDidMount() {
     const URL = 'https://pokeapi.co/api/v2/pokemon/'
-    for (let i = 1; i < numberPokemonToSearch + 1; i++) {
-      this.fetchData(`${URL}${i}/`);
+    for (let i = 0; i < numberPokemonToSearch; i++) {
+      this.fetchData(`${URL}${i+1}/`);
     }
   }
 
@@ -68,7 +68,8 @@ class App extends Component {
         return this.state.pokemonList.length === numberPokemonToSearch 
             ? <Main 
                 handleSearch={this.handleSearch}
-                pokemonList={this.selectListToPrint}/>
+                pokemonList={this.selectListToPrint}
+                searchValue={this.state.searchValue}/>
             : <LoadingPage/>
   }
 }

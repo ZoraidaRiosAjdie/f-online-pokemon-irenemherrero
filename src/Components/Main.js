@@ -6,12 +6,13 @@ class Main extends Component {
     render() { 
         const {
             handleSearch,
-            pokemonList
+            pokemonList, 
+            searchValue,
         } = this.props;
         return ( 
             <div className = "App" >
                 <h1 className='appTitle'>Pokemon Searcher</h1>
-                <Filters handleSearch={handleSearch} />
+                <Filters handleSearch={handleSearch} searchValue = {searchValue}/>
                 <CharactersList pokemonList={pokemonList} />
             </div>
          );
