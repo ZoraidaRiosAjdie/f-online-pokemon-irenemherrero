@@ -9,14 +9,17 @@ class Main extends Component {
             pokemonList, 
             searchValue,
         } = this.props;
+        
         return ( 
-            <div className = "App" >
+            <div className="App">
                 <h1 className='appTitle'>Pokemon Searcher</h1>
-                <Filters handleSearch={handleSearch} searchValue = {searchValue}/>
-                <CharactersList pokemonList={pokemonList} />
+                <Filters 
+                    handleSearch={handleSearch} 
+                    searchValue = {searchValue}/>
+                <CharactersList pokemonList={pokemonList}/>
             </div>
          );
-    }
-}
+    };
+};
  
 export default Main;
