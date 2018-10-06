@@ -17,7 +17,7 @@ class App extends Component {
 
 componentDidMount(){
   const URL = 'https://pokeapi.co/api/v2/pokemon/'
-  const numberPokemonToSearch = 4;
+  const numberPokemonToSearch = 8;
   for(let i = 1; i < numberPokemonToSearch+1; i++){
     this.fetchData(`${URL}${i}/`);
     }
@@ -49,6 +49,7 @@ handleSearch(e){
   render() {
     return (
       <div className="App">
+        <h1 className='appTitle'>Pokemon Searcher</h1>
         <Filters handleSearch={this.handleSearch}/>
         <CharactersList pokemonList={this.state.pokemonList}/>
       </div>

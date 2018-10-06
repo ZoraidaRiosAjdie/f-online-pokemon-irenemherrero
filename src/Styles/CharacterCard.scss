@@ -1,0 +1,34 @@
+.imageIdContainer{
+    background-color: lightgray;
+}
+
+.idContainer{
+    background-color: grey;
+    width: 35%;
+}
+
+.nameTypeContainer{
+    background-color: white;
+    text-transform: capitalize;
+    font-weight: 700;
+    text-align: start;
+    padding: 10px;
+}
+
+.pokemonName{
+    margin: 0;
+    padding: 10px;
+}
+
+.pokemonTypeList{
+    display: flex;
+}
+
+.pokemonTypeList p{
+    font-weight: 400;
+    text-align: center;
+    margin: 5px;
+    padding: 3px;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+}
