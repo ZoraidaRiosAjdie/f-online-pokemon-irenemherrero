@@ -12,6 +12,7 @@ class App extends Component {
       pokemons: []
      }
     this.fetchData=this.fetchData.bind(this);
+    this.handleSearch=this.handleSearch.bind(this);
 }
 
 componentDidMount(){
@@ -26,7 +27,6 @@ componentDidMount(){
     fetch(url)
     .then(response => response.json())
     .then(json => {
-      console.log(json);
       arrayPokemons[json.id-1] = 
         {
               id: json.id,
@@ -42,10 +42,14 @@ componentDidMount(){
   })
 }
 
+handleSearch(){
+  console.log('holi');
+}
+
   render() {
     return (
       <div className="App">
-        <Filters/>
+        <Filters handleSearch={this.handleSearch}/>
         <CharactersList/>
       </div>
     );
