@@ -9,7 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      pokemons: []
+      pokemonList: []
      }
     this.fetchData=this.fetchData.bind(this);
     this.handleSearch=this.handleSearch.bind(this);
@@ -37,20 +37,20 @@ componentDidMount(){
       json.types.map(type => arrayPokemons[json.id-1].types = [...arrayPokemons[json.id-1].types, type.type.name,]
       );
       this.setState({
-        pokemons: arrayPokemons,
-      }, console.log(this.state.pokemons));
+        pokemonList: arrayPokemons,
+      }, console.log(this.state.pokemonList));
   })
 }
 
-handleSearch(){
-  console.log('holi');
+handleSearch(e){
+  console.log(e.target.value);
 }
 
   render() {
     return (
       <div className="App">
         <Filters handleSearch={this.handleSearch}/>
-        <CharactersList/>
+        <CharactersList pokemonList={this.state.pokemonList}/>
       </div>
     );
   }
