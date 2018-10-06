@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 class Filters extends Component {
     render() {
-        console.log(this.props);
         const{handleSearch} = this.props;
         return (
             <div>

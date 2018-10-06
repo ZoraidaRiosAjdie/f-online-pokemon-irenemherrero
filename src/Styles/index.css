@@ -1,7 +1,6 @@
 body {
   list-style: none;
-  background-image: url("../images/pikachu_bckground.jpg");
-  background-size: cover;
+  background: #f3f02b;
   height: 100%;
   margin: 0;
   padding: 0;
