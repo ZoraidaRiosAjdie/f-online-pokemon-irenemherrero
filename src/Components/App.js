@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Filters from './Filters';
-import CharactersList from './CharactersList';
+import { Route, Switch } from 'react-router-dom';
+import Main from './Main';
+import LoadingPage from './LoadingPage';
 
 let arrayPokemons = [];
 
@@ -20,7 +21,7 @@ class App extends Component {
 
   componentDidMount() {
     const URL = 'https://pokeapi.co/api/v2/pokemon/'
-    const numberPokemonToSearch = 25;
+    const numberPokemonToSearch = 5;
     for (let i = 1; i < numberPokemonToSearch + 1; i++) {
       this.fetchData(`${URL}${i}/`);
     }
@@ -62,17 +63,14 @@ class App extends Component {
     return !searchValue
       ? pokemonList
       : filteredList
-    }
+  }
 
   render() {
-        return(
-      <div className = "App" >
-            <h1 className='appTitle'>Pokemon Searcher</h1>
-            <Filters handleSearch={this.handleSearch} />
-            <CharactersList pokemonList={this.selectListToPrint} />
-      </div>
-    );
+    return(
+      <Switch>
+        <Route exact path='/' component={ Main } />
+      </Switch>
+    ); 
   }
 }
-
 export default App;
