@@ -4,7 +4,8 @@
 
 .appTitle {
   padding: 20px;
-  font-size: 50px; }
+  font-size: 50px;
+  font-family: 'Mali', cursive; }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;

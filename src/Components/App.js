@@ -4,7 +4,7 @@ import Main from './Main';
 import LoadingPage from './LoadingPage';
 
 let arrayPokemons = [];
-const numberPokemonToSearch = 25;
+const numberPokemonToSearch = 5;
 
 class App extends Component {
   constructor(props) {

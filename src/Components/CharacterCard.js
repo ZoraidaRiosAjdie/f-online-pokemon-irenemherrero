@@ -8,9 +8,9 @@ class CharacterCard extends Component {
         return (
             <Fragment>
                 <div className='imageIdContainer'>
-                    <img src={pokemonData.photo} alt={pokemonData.name} />
+                    <img className='imagePokemon' src={pokemonData.photo} alt={pokemonData.name} />
                     <div className='idContainer'>
-                        <p>ID / {pokemonData.id}</p>
+                        <p className='pokemonId'>ID / {pokemonData.id}</p>
                     </div>
                 </div>
                 <div className='nameTypeContainer'>

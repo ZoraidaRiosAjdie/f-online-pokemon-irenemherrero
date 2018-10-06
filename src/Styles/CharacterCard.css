@@ -1,9 +1,20 @@
 .imageIdContainer {
-  background-color: lightgray; }
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.imagePokemon {
+  width: 100px; }
 
 .idContainer {
   background-color: grey;
-  width: 35%; }
+  width: 35%;
+  align-self: flex-start;
+  height: 25%; }
+
+.pokemonId {
+  margin: 0; }
 
 .nameTypeContainer {
   background-color: white;
