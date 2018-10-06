@@ -5,7 +5,7 @@ class Filters extends Component {
         const{handleSearch} = this.props;
         return (
             <div>
-                <label htmlFor="pokeSearch">Introduce el nombre de tu pokemon: </label>
+                <label htmlFor="pokeSearch"/>
                 <input id="pokeSearch" type="text" name="pokemonName" onChange={handleSearch}/>
             </div>
         );
