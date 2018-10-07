@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import '../Styles/CharacterCard.css';
+import PropTypes from 'prop-types';
 
 class CharacterCard extends Component {
     render() {
@@ -30,6 +31,10 @@ class CharacterCard extends Component {
             </Fragment>
         );
     };
+};
+
+CharacterCard.propTypes = {
+    pokemonData: PropTypes.object,
 };
 
 export default CharacterCard;

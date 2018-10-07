@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Filters from './Filters';
 import CharactersList from './CharactersList';
+import PropTypes from 'prop-types';
 
 class Main extends Component {
     render() { 
@@ -22,4 +23,10 @@ class Main extends Component {
     };
 };
  
+Main.propTypes = {
+    handleSearch: PropTypes.func,
+    pokemonList: PropTypes.func,
+    searchValue: PropTypes.string
+};
+
 export default Main;
