@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Main from "./Main";
 import LoadingPage from "./LoadingPage";
 
-let arrayPokemons = [];
-const numberPokemonToSearch = 25;
+const arrayPokemons = [];
+const numberPokemonToSearch = 10;
 
 class App extends Component {
   constructor(props) {
@@ -23,42 +23,62 @@ class App extends Component {
   //1. Rescatar datos de LS (si hay) o preparar llamada a la API
 
   componentDidMount() {
-    const listFromLocalStorage = JSON.parse(localStorage.getItem("pokemon-list"));
-    if (listFromLocalStorage) {
-      this.setState({
-        pokemonList: listFromLocalStorage
-      });
-    } else {
-      const URL = "https://pokeapi.co/api/v2/pokemon/";
-      for (let i = 0; i < numberPokemonToSearch; i++) {
-        this.fetchData(`${URL}${i + 1}/`);
-      };
+    // const listFromLocalStorage = JSON.parse(localStorage.getItem("pokemon-list"));
+    // if (listFromLocalStorage) {
+    //   this.setState({
+    //     pokemonList: listFromLocalStorage
+    //   });
+    // } else {
+    const URL = "https://pokeapi.co/api/v2/pokemon/";
+    for (let i = 0; i < numberPokemonToSearch; i++) {
+      this.fetchData(`${URL}${i + 1}/`, i);
+      // };
     };
   };
 
   // 2. Llamada a la API y construcción de objeto con datos de pokemon.
 
-  fetchData(url) {
+  fetchData(url, i) {
     fetch(url)
       .then(response => response.json())
       .then(json => {
-        arrayPokemons[json.id - 1] = {
+        arrayPokemons[i] = {
           id: json.id,
           name: json.name,
           photo: json.sprites.front_default,
-          types: ""
+          height: json.height,
+          weight: json.weight,
+          types: "",
+          abilities: "",
         };
         json.types.map(
           type =>
-            (arrayPokemons[json.id - 1].types = [
-              ...arrayPokemons[json.id - 1].types,
+            (arrayPokemons[i].types = [
+              ...arrayPokemons[i].types,
               type.type.name
             ])
         );
-        this.saveDataInState();
-      });
-  };
-
+        json.abilities.map(
+          ability =>
+            (arrayPokemons[i].abilities = [
+              ...arrayPokemons[i].abilities,
+              ability.ability.name
+            ])
+        );
+          
+        fetch(json.species.url)
+          .then(response => response.json())
+          .then(json => {
+            if(json.evolves_from_species) {
+              arrayPokemons[i].evolution = json.evolves_from_species.name;
+              console.log(arrayPokemons);
+            } else {
+              console.log('no evoluciono');
+            }
+          });
+      })
+    }
+  // this.saveDataInState();
   //3. Meter datos de la API en el estado
 
   saveDataInState() {
@@ -96,13 +116,13 @@ class App extends Component {
   };
 
   render() {
-    return this.state.pokemonList.length === numberPokemonToSearch 
-    ? <Main
+    return this.state.pokemonList.length === numberPokemonToSearch
+      ? <Main
         handleSearch={this.handleSearch}
         pokemonList={this.selectListToPrint}
         searchValue={this.state.searchValue}
       />
-    : <LoadingPage />
+      : <LoadingPage />
   };
 };
 
