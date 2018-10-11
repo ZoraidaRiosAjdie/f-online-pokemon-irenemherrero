@@ -58,13 +58,13 @@ body {
 .nameTypeContainer {
   background-color: white;
   text-transform: capitalize;
-  font-weight: 700;
   text-align: start;
   padding: 10px; }
 
 .pokemonName {
   margin: 0;
-  padding: 10px; }
+  padding: 10px;
+  font-weight: 700; }
 
 .pokemonTypeList {
   display: flex; }
@@ -76,3 +76,17 @@ body {
   padding: 3px;
   border: 1px solid lightgrey;
   border-radius: 10px; }
+
+.evolution {
+  margin: 5px;
+  border-left: 5px solid brown; }
+
+.evolutionEmpty {
+  height: 51px; }
+
+.pokemonEvolutionTitle {
+  margin: 5px;
+  font-weight: 400; }
+
+.pokemonEvolution {
+  margin: 5px; }

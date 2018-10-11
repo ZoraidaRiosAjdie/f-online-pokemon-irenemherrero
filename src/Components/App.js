@@ -3,7 +3,7 @@ import Main from "./Main";
 import LoadingPage from "./LoadingPage";
 
 const arrayPokemons = [];
-const numberPokemonToSearch = 10;
+const numberPokemonToSearch = 25;
 
 class App extends Component {
   constructor(props) {
@@ -23,16 +23,17 @@ class App extends Component {
   //1. Rescatar datos de LS (si hay) o preparar llamada a la API
 
   componentDidMount() {
-    // const listFromLocalStorage = JSON.parse(localStorage.getItem("pokemon-list"));
-    // if (listFromLocalStorage) {
-    //   this.setState({
-    //     pokemonList: listFromLocalStorage
-    //   });
-    // } else {
+    const listFromLocalStorage = JSON.parse(localStorage.getItem("pokemon-list"));
+    if (listFromLocalStorage) {
+      console.log('LS');
+      this.setState({
+        pokemonList: listFromLocalStorage
+      });
+    } else {
     const URL = "https://pokeapi.co/api/v2/pokemon/";
     for (let i = 0; i < numberPokemonToSearch; i++) {
       this.fetchData(`${URL}${i + 1}/`, i);
-      // };
+      };
     };
   };
 
@@ -42,65 +43,68 @@ class App extends Component {
     fetch(url)
       .then(response => response.json())
       .then(json => {
+
+        //Meter datos básicos del pokemon en arrayPokemons.
+
         arrayPokemons[i] = {
           id: json.id,
           name: json.name,
           photo: json.sprites.front_default,
           height: json.height,
           weight: json.weight,
-          types: "",
-          abilities: "",
+          types: [],
+          abilities: [],
           images: [],
+          evolutions: [],
         };
+
+        //Meter tipos
+
         json.types.map(
           type =>
-            (arrayPokemons[i].types = [
-              ...arrayPokemons[i].types,
-              type.type.name
-            ])
+            arrayPokemons[i].types.push(type.type.name)
         );
+
+        //Meter habilidades
+
         json.abilities.map(
           ability =>
-            (arrayPokemons[i].abilities = [
-              ...arrayPokemons[i].abilities,
-              ability.ability.name
-            ])
+            arrayPokemons[i].abilities.push(ability.ability.name)
         );
-        arrayPokemons[i].images.push(json.sprites.front_default);
-        arrayPokemons[i].images.push(json.sprites.back_default);
-        arrayPokemons[i].images.push(json.sprites.front_shiny);
-        arrayPokemons[i].images.push(json.sprites.back_shiny);
-          
+
+        //Meter imágenes
+
+        arrayPokemons[i].images.push(
+          json.sprites.front_default, 
+          json.sprites.back_default, 
+          json.sprites.front_shiny, 
+          json.sprites.back_shiny
+        );
+        
+        // Meter evoluciones
+
         fetch(json.species.url)
           .then(response => response.json())
           .then(json => {
-            if(json.evolves_from_species) {
-              arrayPokemons[i].evolution = json.evolves_from_species.name;
-              console.log(arrayPokemons);
-            } else {
-              console.log('no evoluciono');
-            }
             fetch(json.evolution_chain.url)
             .then(response => response.json())
             .then (json => {
-              console.log(json.chain.species.name);
-              console.log(json.chain.evolves_to[0].species.name);
-              console.log(json.chain.evolves_to[0].evolves_to[0].species.name);
               const evolution0 = json.chain.species.name;
-              const evolution1 = json.chain.evolves_to[0].species.name;
-              const evolution2 = json.chain.evolves_to[0].evolves_to[0].species.name;
-              arrayPokemons[i] = {
-                ...arrayPokemons[i],
-                evolution0: evolution0,
-                evolution1: evolution1,
-                evolution2: evolution2,
-              }
-              console.log(arrayPokemons);
+              arrayPokemons[i].evolutions.push(evolution0);
+                if(json.chain.evolves_to[0] !== undefined){
+                  const evolution1 = json.chain.evolves_to[0].species.name;
+                  arrayPokemons[i].evolutions.push(evolution1);
+                }
+                if(json.chain.evolves_to[0].evolves_to[0] !== undefined){
+                  const evolution2 = json.chain.evolves_to[0].evolves_to[0].species.name;
+                  arrayPokemons[i].evolutions.push(evolution2);
+                }
+              this.saveDataInState();
             });
           });
       });
     }
-  // this.saveDataInState();
+
   //3. Meter datos de la API en el estado
 
   saveDataInState() {

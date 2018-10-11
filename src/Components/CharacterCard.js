@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 class CharacterCard extends Component {
     render() {
+        console.log(this.props.pokemonData);
         const { pokemonData } = this.props;
         return (
             <Fragment>
@@ -26,6 +27,13 @@ class CharacterCard extends Component {
                         })
                         }
                     </div>
+                    {pokemonData.name !== pokemonData.evolutions[0]
+                        ?   <div className="evolution">
+                                <p className="pokemonEvolutionTitle">Evoluciona de:</p>
+                                <p className="pokemonEvolution">{pokemonData.evolutions[0]}</p>
+                            </div>
+                        :   <div className="evolutionEmpty"></div>
+                    }
                 </div>
             </Fragment>
         );
