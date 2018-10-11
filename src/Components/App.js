@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Main from "./Main";
 import LoadingPage from "./LoadingPage";
+import Detail from "./Detail";
+import { Route, Switch } from 'react-router-dom';
 
 const arrayPokemons = [];
 const numberPokemonToSearch = 25;
@@ -142,13 +144,31 @@ class App extends Component {
   };
 
   render() {
-    return this.state.pokemonList.length === numberPokemonToSearch
-      ? <Main
-        handleSearch={this.handleSearch}
-        pokemonList={this.selectListToPrint}
-        searchValue={this.state.searchValue}
-      />
-      : <LoadingPage />
+    return( 
+      <Switch>
+        <Route 
+          exact path='/' 
+          render={() => {
+            return this.state.pokemonList.length === numberPokemonToSearch
+              ? <Main
+                handleSearch={this.handleSearch}
+                pokemonList={this.selectListToPrint}
+                searchValue={this.state.searchValue}
+                />
+              : <LoadingPage />
+            }}
+        />
+        <Route
+          path='/pokemon/:id'
+          render={props =>
+            <Detail
+              match={props.match}
+              pokemonList={this.state.pokemonList}
+            />
+          }
+        />
+      </Switch>
+    )
   };
 };
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CharacterCard from './CharacterCard.js';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class CharactersList extends Component {
     render() {
@@ -10,9 +11,16 @@ class CharactersList extends Component {
                 <ul className="pokemonList">
                     {
                         pokemonList().map((pokemonData) => {
-                            return <li className="pokemonCard" key={pokemonData.id}>
+                            return( 
+                            <Link 
+                                className="linkToDetail" 
+                                to={`/pokemon/${pokemonData.id}`}
+                            >
+                                <li className="pokemonCard" key={pokemonData.id}>
                                 <CharacterCard pokemonData={pokemonData} />
-                            </li>
+                                </li>
+                            </Link>
+                            )
                         })
                     }
                 </ul>

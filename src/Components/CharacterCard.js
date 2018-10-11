@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 class CharacterCard extends Component {
     render() {
-        console.log(this.props.pokemonData);
         const { pokemonData } = this.props;
         return (
             <Fragment>
