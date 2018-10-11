@@ -121,3 +121,169 @@ body {
   margin: 5px;
 }
 
+//Detail
+
+.pokemonDataContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: yellow;
+  height: 100vh;
+}
+
+.pokemonCardDetail{
+  background-color: white;
+  width: 50%;
+  margin-top: 10vh;
+  box-shadow: 5px 5px 5px #888888;
+}
+
+.pokeNameContainer{
+  background-color: green;
+  color: white;
+  text-align: center;
+}
+
+.titlePokemon{
+  margin: 0;
+  padding: 30px;
+  text-transform: capitalize;
+}
+
+.photoAndDataContainer{
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+}
+
+.photoAndTypeContainer{
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.photoContainerDetail{
+  text-align: center;
+  padding-top: 60px;
+}
+
+.typeContainerDetail{
+  text-align: center;
+}
+
+.listTypesDetails{
+  padding: 0;
+}
+
+.typeDetails{
+  text-transform: uppercase;
+  font-weight: 700;
+  color: white;
+  background-color: purple;
+  display: inline-block;
+  width: 70px;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 5px;
+  font-size: 12px;
+}
+.allDataContainer{
+  width: 70%;
+}
+
+.dataTitleDetail{
+  background-color: green;
+  padding: 10px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  color: white;
+  font-size: 18px;
+}
+
+.listCharacteristicsDetails{
+  list-style: none;
+  padding: 0;
+  margin-left: 20px;
+}
+
+.characteristicTitle{
+  font-weight: 700;
+}
+
+.listAbilitiesDetail{
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.abilityDetail{
+  background-color: rgb(255, 126, 5);
+  padding: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  border-radius: 5px;
+  text-transform: uppercase;
+  margin-right: 30px;
+}
+
+.bigTitle{
+  background-color: green;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.listEvolutionsDetail{
+  padding: 0px 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.evolutionDetail{
+  margin: 20px;
+  background-color: black;
+  color: white;
+  text-transform: uppercase;
+  padding: 10px;
+  font-weight: 700;
+  border-radius: 5px;
+}
+
+.imagesContainerDetail{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0;
+}
+
+img{
+  transform:scale(1.2);
+  margin: 20px;
+}
+
+.containerButtonBackDetail{
+  display: flex;
+  justify-content: center;
+}
+
+.buttonBack{
+  background-color: orangered;
+  color:white;
+  box-shadow: 0;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px;
+
+}
+
+
+
+
+
