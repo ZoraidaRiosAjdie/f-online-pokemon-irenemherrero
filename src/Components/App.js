@@ -50,6 +50,7 @@ class App extends Component {
           weight: json.weight,
           types: "",
           abilities: "",
+          images: [],
         };
         json.types.map(
           type =>
@@ -65,6 +66,10 @@ class App extends Component {
               ability.ability.name
             ])
         );
+        arrayPokemons[i].images.push(json.sprites.front_default);
+        arrayPokemons[i].images.push(json.sprites.back_default);
+        arrayPokemons[i].images.push(json.sprites.front_shiny);
+        arrayPokemons[i].images.push(json.sprites.back_shiny);
           
         fetch(json.species.url)
           .then(response => response.json())
@@ -75,8 +80,25 @@ class App extends Component {
             } else {
               console.log('no evoluciono');
             }
+            fetch(json.evolution_chain.url)
+            .then(response => response.json())
+            .then (json => {
+              console.log(json.chain.species.name);
+              console.log(json.chain.evolves_to[0].species.name);
+              console.log(json.chain.evolves_to[0].evolves_to[0].species.name);
+              const evolution0 = json.chain.species.name;
+              const evolution1 = json.chain.evolves_to[0].species.name;
+              const evolution2 = json.chain.evolves_to[0].evolves_to[0].species.name;
+              arrayPokemons[i] = {
+                ...arrayPokemons[i],
+                evolution0: evolution0,
+                evolution1: evolution1,
+                evolution2: evolution2,
+              }
+              console.log(arrayPokemons);
+            });
           });
-      })
+      });
     }
   // this.saveDataInState();
   //3. Meter datos de la API en el estado
