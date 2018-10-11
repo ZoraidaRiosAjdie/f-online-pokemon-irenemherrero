@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import pikachuLoading from '../images/pikachu_loading.gif';
-import '../Styles/LoadingPage.css';
 
 class LoadingPage extends Component {
     render() {

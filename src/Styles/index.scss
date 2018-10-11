@@ -11,7 +11,93 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+//APP
+
+.App {
+  text-align: center;
+  padding: 30px;
 }
+
+.appTitle{
+  padding: 20px;
+  font-size: 50px;
+  font-family: 'Mali', cursive;
+}
+
+// Loading 
+
+.containerLoadingPikachu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+//CharacterList
+
+.pokemonList{
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pokemonCard{
+  width: 200px;
+  border: 1px solid grey;
+  margin: 10px;
+  box-shadow:  5px 5px 5px #888888;
+}
+
+//CharacterCard
+
+.imageIdContainer{
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imagePokemon{
+  width: 100px;
+}
+
+.idContainer{
+  background-color: grey;
+  width: 35%;
+  align-self: flex-start;
+  height: 25%;
+}
+
+.pokemonId{
+  margin: 0;
+}
+
+.nameTypeContainer{
+  background-color: white;
+  text-transform: capitalize;
+  font-weight: 700;
+  text-align: start;
+  padding: 10px;
+}
+
+.pokemonName{
+  margin: 0;
+  padding: 10px;
+}
+
+.pokemonTypeList{
+  display: flex;
+}
+
+.pokemonTypeList p{
+  font-weight: 400;
+  text-align: center;
+  margin: 5px;
+  padding: 3px;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+}
+

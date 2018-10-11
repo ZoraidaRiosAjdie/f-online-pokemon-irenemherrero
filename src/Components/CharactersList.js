@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import CharacterCard from './CharacterCard.js';
-import '../Styles/CharactersList.css';
 import PropTypes from 'prop-types';
 
 class CharactersList extends Component {

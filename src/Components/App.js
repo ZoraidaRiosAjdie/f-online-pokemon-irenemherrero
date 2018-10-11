@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../Styles/App.css";
 import Main from "./Main";
 import LoadingPage from "./LoadingPage";
 
