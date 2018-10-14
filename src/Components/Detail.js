@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+import { CSSTransitionGroup } from 'react-transition-group'
 
 class Detail extends Component {
     render() {
@@ -26,7 +27,13 @@ class Detail extends Component {
                     <div className="photoAndDataContainer">
                         <div className="photoAndTypeContainer">
                             <div className="photoContainerDetail">
-                                <img src={photo} alt={name} />
+                                <CSSTransitionGroup
+                                    transitionName="pokeTransition"
+                                    transitionAppear={true}
+                                    transitionAppearTimeout={1000}
+                                    >
+                                        <img src={photo} alt={name} />
+                                </CSSTransitionGroup>
                             </div>
                             <div className="typeContainerDetail">
                                 <ul className="listTypesDetails">
@@ -39,7 +46,13 @@ class Detail extends Component {
                             </div>
                         </div>
                         <div className="allDataContainer">
+                        <CSSTransitionGroup
+                                    transitionName="pokeTitleTransition"
+                                    transitionAppear={true}
+                                    transitionAppearTimeout={1500}
+                                    >
                             <h2 className="dataTitleDetail">Characteristics</h2>
+                            </CSSTransitionGroup>
                             <ul className="listCharacteristicsDetails">
                                 <li>
                                     <p className="characteristicTitle">Height:</p>
@@ -50,7 +63,13 @@ class Detail extends Component {
                                     <p className="characteristicData">{weight}</p>
                                 </li>
                             </ul>
+                            <CSSTransitionGroup
+                                    transitionName="pokeTitleTransition"
+                                    transitionAppear={true}
+                                    transitionAppearTimeout={1500}
+                                    >
                             <h2 className="dataTitleDetail">Abilities</h2>
+                            </CSSTransitionGroup>
                             <ul className="listAbilitiesDetail">
                                 {abilities.map(ability => {
                                     return (
@@ -71,14 +90,22 @@ class Detail extends Component {
                         </ul>
                     </div>
                     <div>
+                                <CSSTransitionGroup
+                                    transitionName="pokeImagesTransition"
+                                    transitionAppear={true}
+                                    transitionAppearTimeout={2500}
+                                    >
                         <h2 className="bigTitle">Images</h2>
                         <ul className="imagesContainerDetail">
                             {images.map(image => {
                                 return (
+                                    
                                     <img src={image} alt={name} />
+                                    
                                 );
                             })}
                         </ul>
+                        </CSSTransitionGroup>
                     </div>
                     <div className="containerButtonBackDetail">
                         <Link

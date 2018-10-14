@@ -231,3 +231,24 @@ img {
   font-size: 16px;
   font-weight: 700;
   padding: 10px; }
+
+.pokeTransition-appear {
+  opacity: 0.01; }
+
+.pokeTransition-appear.pokeTransition-appear-active {
+  opacity: 1;
+  transition: opacity 1s ease-in; }
+
+.pokeTitleTransition-appear {
+  width: 0%; }
+
+.pokeTitleTransition-appear.pokeTitleTransition-appear-active {
+  width: 100%;
+  transition: width 1.5s ease-in; }
+
+.pokeImagesTransition-appear {
+  opacity: 0.01; }
+
+.pokeImagesTransition-appear.pokeImagesTransition-appear-active {
+  opacity: 1;
+  transition: opacity 2.5s ease-in; }

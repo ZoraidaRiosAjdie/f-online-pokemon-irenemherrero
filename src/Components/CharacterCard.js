@@ -1,17 +1,20 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
+
 class CharacterCard extends Component {
     render() {
         const { pokemonData } = this.props;
         return (
             <Fragment>
                 <div className='imageIdContainer'>
+                
                     <img
                         className='imagePokemon'
                         src={pokemonData.photo}
                         alt={pokemonData.name}
                     />
+                    
                     <div className='idContainer'>
                         <p className='pokemonId'>ID / {pokemonData.id}</p>
                     </div>
