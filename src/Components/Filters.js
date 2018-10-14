@@ -17,7 +17,7 @@ class Filters extends Component {
                     name="pokemonName"
                     onChange={handleSearch}
                     value={searchValue}
-                    placeholder="Filtra pokemon por nombre..."
+                    placeholder="Filter pokemon by name..."
                     className="inputFilter"
                 />
             </div>
