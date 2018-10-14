@@ -148,15 +148,13 @@ class App extends Component {
           exact
           path="/"
           render={() => {
-            return this.state.pokemonList.length === numberPokemonToSearch ? (
-              <Main
+            return this.state.pokemonList.length === numberPokemonToSearch 
+            ? <Main
                 handleSearch={this.handleSearch}
                 pokemonList={this.selectListToPrint}
                 searchValue={this.state.searchValue}
-              />
-            ) : (
-              <LoadingPage />
-            );
+              /> 
+            : <LoadingPage />;
           }}
         />
         <Route
