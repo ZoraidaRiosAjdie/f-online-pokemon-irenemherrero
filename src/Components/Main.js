@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from './Header';
 import Filters from './Filters';
 import CharactersList from './CharactersList';
 import Footer from './Footer';
@@ -14,8 +15,7 @@ class Main extends Component {
         
         return ( 
             <div className="App">
-
-                <h1 className='appTitle'>Pokemon Searcher</h1>
+                <Header/>
                 <Filters 
                     handleSearch={handleSearch} 
                     searchValue = {searchValue}/>
