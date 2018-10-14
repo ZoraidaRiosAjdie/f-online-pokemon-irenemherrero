@@ -20,7 +20,7 @@ class CharactersList extends Component {
                                 <CharacterCard pokemonData={pokemonData} />
                                 </li>
                             </Link>
-                            )
+                            );
                         })
                     }
                 </ul>

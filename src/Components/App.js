@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Main from "./Main";
 import LoadingPage from "./LoadingPage";
 import Detail from "./Detail";
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch } from "react-router-dom";
 
 const arrayPokemons = [];
 const numberPokemonToSearch = 25;
@@ -25,16 +25,18 @@ class App extends Component {
   //1. Rescatar datos de LS (si hay) o preparar llamada a la API
 
   componentDidMount() {
-    const listFromLocalStorage = JSON.parse(localStorage.getItem("pokemon-list"));
+    const listFromLocalStorage = JSON.parse(
+      localStorage.getItem("pokemon-list")
+    );
     if (listFromLocalStorage) {
-      console.log('LS');
+      console.log("LS");
       this.setState({
         pokemonList: listFromLocalStorage
       });
     } else {
-    const URL = "https://pokeapi.co/api/v2/pokemon/";
-    for (let i = 0; i < numberPokemonToSearch; i++) {
-      this.fetchData(`${URL}${i + 1}/`, i);
+      const URL = "https://pokeapi.co/api/v2/pokemon/";
+      for (let i = 0; i < numberPokemonToSearch; i++) {
+        this.fetchData(`${URL}${i + 1}/`, i);
       };
     };
   };
@@ -45,7 +47,6 @@ class App extends Component {
     fetch(url)
       .then(response => response.json())
       .then(json => {
-
         //Meter datos básicos del pokemon en arrayPokemons.
 
         arrayPokemons[i] = {
@@ -57,55 +58,52 @@ class App extends Component {
           types: [],
           abilities: [],
           images: [],
-          evolutions: [],
+          evolutions: []
         };
 
         //Meter tipos
 
-        json.types.map(
-          type =>
-            arrayPokemons[i].types.push(type.type.name)
-        );
+        json.types.map(type => arrayPokemons[i].types.push(type.type.name));
 
         //Meter habilidades
 
-        json.abilities.map(
-          ability =>
-            arrayPokemons[i].abilities.push(ability.ability.name)
+        json.abilities.map(ability =>
+          arrayPokemons[i].abilities.push(ability.ability.name)
         );
 
         //Meter imágenes
 
         arrayPokemons[i].images.push(
-          json.sprites.front_default, 
-          json.sprites.back_default, 
-          json.sprites.front_shiny, 
+          json.sprites.front_default,
+          json.sprites.back_default,
+          json.sprites.front_shiny,
           json.sprites.back_shiny
         );
-        
+
         // Meter evoluciones
 
         fetch(json.species.url)
           .then(response => response.json())
           .then(json => {
             fetch(json.evolution_chain.url)
-            .then(response => response.json())
-            .then (json => {
-              const evolution0 = json.chain.species.name;
-              arrayPokemons[i].evolutions.push(evolution0);
-                if(json.chain.evolves_to[0] !== undefined){
+              .then(response => response.json())
+              .then(json => {
+                const evolution0 = json.chain.species.name;
+                arrayPokemons[i].evolutions.push(evolution0);
+                if (json.chain.evolves_to[0] !== undefined) {
                   const evolution1 = json.chain.evolves_to[0].species.name;
                   arrayPokemons[i].evolutions.push(evolution1);
                 }
-                if(json.chain.evolves_to[0].evolves_to[0] !== undefined){
-                  const evolution2 = json.chain.evolves_to[0].evolves_to[0].species.name;
+                if (json.chain.evolves_to[0].evolves_to[0] !== undefined) {
+                  const evolution2 =
+                    json.chain.evolves_to[0].evolves_to[0].species.name;
                   arrayPokemons[i].evolutions.push(evolution2);
                 }
-              this.saveDataInState();
-            });
+                this.saveDataInState();
+              });
           });
       });
-    }
+  }
 
   //3. Meter datos de la API en el estado
 
@@ -116,13 +114,13 @@ class App extends Component {
       },
       this.saveDataInLocalStorage()
     );
-  };
+  }
 
   //4. Guardar datos en el Local Storage
 
   saveDataInLocalStorage() {
     localStorage.setItem("pokemon-list", JSON.stringify(arrayPokemons));
-  };
+  }
 
   //5. Controlar el evento del input: cuando escribes, se filtra la lista de pokemon inicial y los filtrados se meten en el array filteredList del estado.
 
@@ -134,41 +132,41 @@ class App extends Component {
         return pokemon.name.includes(search);
       })
     });
-  };
+  }
 
   //6. Seleccinar la lista de pokemon que renderizar: la inicial o la filtrada
 
   selectListToPrint() {
     const { filteredList, pokemonList, searchValue } = this.state;
     return !searchValue ? pokemonList : filteredList;
-  };
+  }
 
   render() {
-    return( 
+    return (
       <Switch>
-        <Route 
-          exact path='/' 
+        <Route
+          exact
+          path="/"
           render={() => {
-            return this.state.pokemonList.length === numberPokemonToSearch
-              ? <Main
+            return this.state.pokemonList.length === numberPokemonToSearch ? (
+              <Main
                 handleSearch={this.handleSearch}
                 pokemonList={this.selectListToPrint}
                 searchValue={this.state.searchValue}
-                />
-              : <LoadingPage />
-            }}
+              />
+            ) : (
+              <LoadingPage />
+            );
+          }}
         />
         <Route
-          path='/pokemon/:id'
-          render={props =>
-            <Detail
-              match={props.match}
-              pokemonList={this.state.pokemonList}
-            />
-          }
+          path="/pokemon/:id"
+          render={props => (
+            <Detail match={props.match} pokemonList={this.state.pokemonList} />
+          )}
         />
       </Switch>
-    )
+    );
   };
 };
 
