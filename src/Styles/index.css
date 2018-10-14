@@ -9,19 +9,25 @@ body {
   -moz-osx-font-smoothing: grayscale; }
 
 .App {
-  text-align: center;
-  padding: 30px; }
+  text-align: center; }
 
 .appTitle {
   padding: 20px;
-  font-size: 50px;
-  font-family: 'Mali', cursive; }
+  font-size: 60px;
+  font-family: 'Righteous', cursive;
+  color: brown; }
 
 .containerLoadingPikachu {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh; }
+
+.inputFilter {
+  width: 400px;
+  height: 30px;
+  font-size: 16px;
+  border-radius: 5px; }
 
 .pokemonList {
   list-style: none;
@@ -35,11 +41,35 @@ body {
   width: 200px;
   border: 1px solid grey;
   margin: 10px;
-  box-shadow: 5px 5px 5px #888888; }
+  box-shadow: 5px 5px 5px #888888;
+  transition: scale ease 1s; }
+  .pokemonCard:hover {
+    transform: scale(1.1); }
 
 .linkToDetail {
   text-decoration: none;
   color: black; }
+
+.footerContainer {
+  height: 150px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+
+.pikachuCheekLeft {
+  background-color: red;
+  height: 100%;
+  margin: 0;
+  width: 150px;
+  border-top-right-radius: 100%; }
+
+.pikachuCheekRight {
+  background-color: red;
+  height: 100%;
+  margin: 0;
+  width: 150px;
+  border-top-left-radius: 100%; }
 
 .imageIdContainer {
   background-color: lightgray;

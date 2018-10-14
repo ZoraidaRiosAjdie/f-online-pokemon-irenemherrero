@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Filters from './Filters';
 import CharactersList from './CharactersList';
+import Footer from './Footer';
 import PropTypes from 'prop-types';
 
 class Main extends Component {
@@ -13,11 +14,13 @@ class Main extends Component {
         
         return ( 
             <div className="App">
+
                 <h1 className='appTitle'>Pokemon Searcher</h1>
                 <Filters 
                     handleSearch={handleSearch} 
                     searchValue = {searchValue}/>
                 <CharactersList pokemonList={pokemonList}/>
+                <Footer/>
             </div>
          );
     };
