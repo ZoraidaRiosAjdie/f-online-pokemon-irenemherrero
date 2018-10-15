@@ -110,6 +110,41 @@ body {
   color: black;
 }
 
+//NoPokemon
+
+.noPokemonContainer{
+  height: 80%;
+}
+
+.catchPokemon{
+  width: 240px;
+  height: 200px;
+  margin-top: 10%;
+  @media all and (max-width: 768px){
+    width: 180px;
+    height: 140px;
+    margin-top: 20%;
+  }
+}
+
+.noPokemonMessage{
+margin: 10%;
+margin-top: 60px;
+margin-bottom: 0px;
+font-family: 'Courier New', Courier, monospace;
+  @media all and (max-width: 768px){
+    font-size: 24px;
+    margin-top: 20%;
+  }
+}
+
+.noPokemonMessage2{
+font-family: 'Courier New', Courier, monospace;
+font-size: 40px;
+color: red;
+font-weight: 700;
+}
+
 //Footer
 
 .footerContainer{

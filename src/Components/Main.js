@@ -20,7 +20,9 @@ class Main extends Component {
                 <Filters 
                     handleSearch={handleSearch} 
                     searchValue = {searchValue}/>
-                <CharactersList pokemonList={pokemonList}/>
+                <CharactersList 
+                    pokemonList={pokemonList}
+                    searchValue = {searchValue}/>
                 <Footer/>
             </div>
          );
