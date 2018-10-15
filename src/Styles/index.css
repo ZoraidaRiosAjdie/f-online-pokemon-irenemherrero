@@ -173,12 +173,12 @@ body {
   justify-content: center;
   align-items: center;
   background-color: yellow;
-  height: 100vh; }
+  padding-top: 3%; }
 
 .pokemonCardDetail {
   background-color: white;
-  width: 50%;
-  margin-top: 10vh;
+  width: 90%;
+  max-width: 700px;
   box-shadow: 5px 5px 5px #888888; }
 
 .pokeNameContainer {
@@ -245,7 +245,8 @@ body {
 .listAbilitiesDetail {
   padding: 0;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  flex-wrap: wrap; }
 
 .abilityDetail {
   background-color: #ff7e05;
@@ -268,26 +269,27 @@ body {
   padding: 0px 30px;
   display: flex;
   flex-direction: row;
-  justify-content: center; }
+  justify-content: space-around;
+  flex-wrap: wrap; }
 
 .evolutionDetail {
-  margin: 20px;
   background-color: black;
   color: white;
   text-transform: uppercase;
   padding: 10px;
   font-weight: 700;
-  border-radius: 5px; }
+  border-radius: 5px;
+  margin: 5px; }
 
 .imagesContainerDetail {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
   padding: 0; }
 
 img {
-  transform: scale(1.5);
-  margin: 20px; }
+  transform: scale(1.5); }
 
 .containerButtonBackDetail {
   display: flex;
