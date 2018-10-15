@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-
 class CharacterCard extends Component {
     render() {
-        const { pokemonData } = this.props;
+        const { 
+            pokemonData, 
+        } = this.props;
         return (
             <Fragment>
                 <div className='imageIdContainer'>
@@ -24,7 +25,7 @@ class CharacterCard extends Component {
                     <div className='pokemonTypeList'>
                         {pokemonData.types.map((type, index) => {
                             return <li key={index}>
-                                <p>{type}</p>
+                                <p className={type}>{type}</p>
                             </li>
                         })
                         }

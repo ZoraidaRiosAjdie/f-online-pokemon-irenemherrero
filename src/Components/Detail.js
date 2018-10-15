@@ -47,7 +47,7 @@ class Detail extends Component {
                                 <ul className="listTypesDetails">
                                     {types.map(type => {
                                         return (
-                                            <p className="typeDetails">{type}</p>
+                                            <p className={`typeDetails ${type}`}>{type}</p>
                                         );
                                     })}
                                 </ul>

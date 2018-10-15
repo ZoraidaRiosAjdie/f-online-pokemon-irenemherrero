@@ -183,6 +183,34 @@ body {
   border: 1px solid lightgrey;
   border-radius: 10px; }
 
+.poison {
+  background-color: purple;
+  color: white; }
+
+.grass {
+  background-color: #06ca06;
+  color: white; }
+
+.fire {
+  background-color: red;
+  color: white; }
+
+.water {
+  background-color: blue;
+  color: white; }
+
+.flying {
+  background-color: lightblue;
+  color: black; }
+
+.bug {
+  background-color: darkgreen;
+  color: white; }
+
+.electric {
+  background-color: yellow;
+  color: black; }
+
 .evolution {
   margin: 5px;
   border-left: 5px solid brown; }
@@ -243,8 +271,6 @@ body {
 .typeDetails {
   text-transform: uppercase;
   font-weight: 700;
-  color: white;
-  background-color: purple;
   display: inline-block;
   width: 70px;
   padding: 5px;

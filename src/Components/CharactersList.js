@@ -5,9 +5,12 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 class CharactersList extends Component {
-    
     render() {
-        const { pokemonList, searchValue } = this.props;
+        const { 
+            pokemonList, 
+            searchValue,
+        } = this.props;
+
         return pokemonList().length > 0
             ? <div className="pokemonContainer">
                 <ul className="pokemonList">
@@ -19,7 +22,8 @@ class CharactersList extends Component {
                                 to={`/pokemon/${pokemonData.id}`}
                             >
                                 <li className="pokemonCard" key={pokemonData.id}>
-                                <CharacterCard pokemonData={pokemonData} />
+                                <CharacterCard 
+                                    pokemonData={pokemonData} />
                                 </li>
                             </Link>
                             );
