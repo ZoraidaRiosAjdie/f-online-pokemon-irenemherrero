@@ -16,6 +16,7 @@ class Main extends Component {
         return ( 
             <div className="App">
                 <Header/>
+                <h1 className='appTitle'>Pokemon Searcher</h1>
                 <Filters 
                     handleSearch={handleSearch} 
                     searchValue = {searchValue}/>
