@@ -3,19 +3,19 @@ import PropTypes from 'prop-types';
 
 class CharacterCard extends Component {
     render() {
-        const { 
-            pokemonData, 
+        const {
+            pokemonData,
         } = this.props;
         return (
             <Fragment>
                 <div className='imageIdContainer'>
-                
+
                     <img
                         className='imagePokemon'
                         src={pokemonData.photo}
                         alt={pokemonData.name}
                     />
-                    
+
                     <div className='idContainer'>
                         <p className='pokemonId'>ID / {pokemonData.id}</p>
                     </div>
@@ -31,11 +31,11 @@ class CharacterCard extends Component {
                         }
                     </div>
                     {pokemonData.name !== pokemonData.evolutions[0]
-                        ?   <div className="evolution">
-                                <p className="pokemonEvolutionTitle">Evoluciona de:</p>
-                                <p className="pokemonEvolution">{pokemonData.evolutions[0]}</p>
-                            </div>
-                        :   <div className="evolutionEmpty"></div>
+                        ? <div className="evolution">
+                            <p className="pokemonEvolutionTitle">Evolves from:</p>
+                            <p className="pokemonEvolution">{pokemonData.evolutions[0]}</p>
+                        </div>
+                        : <div className="evolutionEmpty"></div>
                     }
                 </div>
             </Fragment>
