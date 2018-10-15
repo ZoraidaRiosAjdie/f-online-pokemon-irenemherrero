@@ -6,7 +6,14 @@ class Detail extends Component {
     render() {
         const { id } = this.props.match.params;
         const { pokemonList } = this.props;
-        const pokemonToPrint = pokemonList[id - 1];
+        let pokemonToPrint;
+        if(pokemonList.length !== 0){
+        pokemonToPrint = pokemonList[id - 1];
+        localStorage.setItem('pokemonPrinted', JSON.stringify(pokemonToPrint));
+        } else {
+            const pokemonSaved = JSON.parse(localStorage.getItem('pokemonPrinted'))
+            pokemonToPrint = pokemonSaved;
+        }
         const {
             abilities,
             evolutions,
@@ -31,6 +38,7 @@ class Detail extends Component {
                                     transitionName="pokeTransition"
                                     transitionAppear={true}
                                     transitionAppearTimeout={1000}
+                                    transitionLeaveTimeout={false}
                                     >
                                         <img src={photo} alt={name} />
                                 </CSSTransitionGroup>

@@ -3,7 +3,6 @@ import pikachuCatch from '../images/pikachu_catch.gif';
 
 class NoPokemon extends Component {
     render() { 
-        console.log(this.props);
         return ( 
             <div className="noPokemonContainer">
                 <img className="catchPokemon" src={pikachuCatch} alt="No pokemon to show"/>
