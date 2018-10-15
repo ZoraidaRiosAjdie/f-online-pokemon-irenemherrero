@@ -7,9 +7,9 @@ class Detail extends Component {
         const { id } = this.props.match.params;
         const { pokemonList } = this.props;
         let pokemonToPrint;
-        if(pokemonList.length !== 0){
-        pokemonToPrint = pokemonList[id - 1];
-        localStorage.setItem('pokemonPrinted', JSON.stringify(pokemonToPrint));
+        if (pokemonList.length !== 0) {
+            pokemonToPrint = pokemonList[id - 1];
+            localStorage.setItem('pokemonPrinted', JSON.stringify(pokemonToPrint));
         } else {
             const pokemonSaved = JSON.parse(localStorage.getItem('pokemonPrinted'))
             pokemonToPrint = pokemonSaved;
@@ -39,8 +39,8 @@ class Detail extends Component {
                                     transitionAppear={true}
                                     transitionAppearTimeout={1000}
                                     transitionLeaveTimeout={false}
-                                    >
-                                        <img src={photo} alt={name} />
+                                >
+                                    <img src={photo} alt={name} />
                                 </CSSTransitionGroup>
                             </div>
                             <div className="typeContainerDetail">
@@ -54,12 +54,12 @@ class Detail extends Component {
                             </div>
                         </div>
                         <div className="allDataContainer">
-                        <CSSTransitionGroup
-                                    transitionName="pokeTitleTransition"
-                                    transitionAppear={true}
-                                    transitionAppearTimeout={1500}
-                                    >
-                            <h2 className="dataTitleDetail">Characteristics</h2>
+                            <CSSTransitionGroup
+                                transitionName="pokeTitleTransition"
+                                transitionAppear={true}
+                                transitionAppearTimeout={1500}
+                            >
+                                <h2 className="dataTitleDetail">Characteristics</h2>
                             </CSSTransitionGroup>
                             <ul className="listCharacteristicsDetails">
                                 <li>
@@ -72,11 +72,11 @@ class Detail extends Component {
                                 </li>
                             </ul>
                             <CSSTransitionGroup
-                                    transitionName="pokeTitleTransition"
-                                    transitionAppear={true}
-                                    transitionAppearTimeout={1500}
-                                    >
-                            <h2 className="dataTitleDetail">Abilities</h2>
+                                transitionName="pokeTitleTransition"
+                                transitionAppear={true}
+                                transitionAppearTimeout={1500}
+                            >
+                                <h2 className="dataTitleDetail">Abilities</h2>
                             </CSSTransitionGroup>
                             <ul className="listAbilitiesDetail">
                                 {abilities.map(ability => {
@@ -98,21 +98,21 @@ class Detail extends Component {
                         </ul>
                     </div>
                     <div>
-                                <CSSTransitionGroup
-                                    transitionName="pokeImagesTransition"
-                                    transitionAppear={true}
-                                    transitionAppearTimeout={2500}
-                                    >
-                        <h2 className="bigTitle">Images</h2>
-                        <ul className="imagesContainerDetail">
-                            {images.map(image => {
-                                return (
-                                    
-                                    <img src={image} alt={name} />
-                                    
-                                );
-                            })}
-                        </ul>
+                        <CSSTransitionGroup
+                            transitionName="pokeImagesTransition"
+                            transitionAppear={true}
+                            transitionAppearTimeout={2500}
+                        >
+                            <h2 className="bigTitle">Images</h2>
+                            <ul className="imagesContainerDetail">
+                                {images.map(image => {
+                                    return (
+
+                                        <img src={image} alt={name} />
+
+                                    );
+                                })}
+                            </ul>
                         </CSSTransitionGroup>
                     </div>
                     <div className="containerButtonBackDetail">
